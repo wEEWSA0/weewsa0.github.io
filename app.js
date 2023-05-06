@@ -5,7 +5,7 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
-let item = "";
+let item = "0";
 
 let btn1 = document.getElementById("btn1");
 let btn2 = document.getElementById("btn2");
