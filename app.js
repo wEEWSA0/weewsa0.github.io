@@ -84,11 +84,11 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
     let userCard = document.getElementById("usercard");
 
     let j = document.createElement("p");
-    j.innerText = `Нажатие`;
-
-    userCard.appendChild(j);
+    j.innerText = `Нажатие ${item}`;
 
     tg.sendData(item);
+
+    userCard.appendChild(j);
 });
 
 let userCard = document.getElementById("usercard");
