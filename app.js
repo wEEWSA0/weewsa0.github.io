@@ -58,7 +58,7 @@ btn4.addEventListener("click", () => {
     }
 });
 
-btn1.addEventListener("click", () => {
+btn5.addEventListener("click", () => {
     if (tg.MainButton.isVisible) {
         tg.MainButton.hide();
     }
