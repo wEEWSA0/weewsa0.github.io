@@ -81,6 +81,13 @@ btn6.addEventListener("click", () => {
 });
 
 tg.onEvent("mainButtonClicked", () => {
+    let userCard = document.getElementById("usercard");
+
+    let j = document.createElement("p");
+    j.innerText = `Нажатие`;
+
+    userCard.appendChild(j);
+
     tg.sendData(item);
 });
 
