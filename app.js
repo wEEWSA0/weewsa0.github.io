@@ -80,7 +80,7 @@ btn6.addEventListener("click", () => {
     }
 });
 
-tg.onEvent("mainButtonClicked", () => {
+Telegram.WebApp.onEvent("mainButtonClicked", () => {
     let userCard = document.getElementById("usercard");
 
     let j = document.createElement("p");
