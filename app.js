@@ -84,7 +84,7 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
         index: buttons[item-1].index,
         name: buttons[item-1].name,
         cost: buttons[item-1].cost
-    }]);
+    }].toString());
 
     userCard.appendChild(j);
 });
