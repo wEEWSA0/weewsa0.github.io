@@ -81,9 +81,9 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
     j.innerText = `Нажатие ${item}`;
 
     tg.sendData([{
-        index: buttons[item].index,
-        name: buttons[item].name,
-        cost: buttons[item].cost
+        index: buttons[item-1].index,
+        name: buttons[item-1].name,
+        cost: buttons[item-1].cost
     }]);
 
     userCard.appendChild(j);
