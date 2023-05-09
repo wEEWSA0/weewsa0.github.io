@@ -30,15 +30,15 @@ let products = [
     },
     {
         name: "Coke",
-        cost: 3000
+        cost: 11000
     },
     {
         name: "Cookie",
-        cost: 1950
+        cost: 8550
     },
     {
         name: "Donut",
-        cost: 5900
+        cost: 9900
     },
     {
         name: "Flan",
