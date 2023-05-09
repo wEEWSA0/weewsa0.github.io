@@ -80,11 +80,13 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
     let j = document.createElement("p");
     j.innerText = `Нажатие ${item}`;
 
-    tg.sendData([{
-        index: buttons[item-1].index,
-        name: buttons[item-1].name,
-        cost: buttons[item-1].cost
-    }].toString());
+    tg.sendData(`[
+    {
+        index: ${buttons[item-1].index},
+        name: ${buttons[item-1].name},
+        cost: ${buttons[item-1].cost}
+    }
+    ]`);
 
     userCard.appendChild(j);
 });
