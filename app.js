@@ -5,80 +5,74 @@ tg.expand();
 tg.MainButton.textColor = "#FFFFFF";
 tg.MainButton.color = "#2cab37";
 
-let item = "0";
+class Button {
+    index;
+    html;
+    name;
+    cost;
 
-let btn1 = document.getElementById("btn1");
-let btn2 = document.getElementById("btn2");
-let btn3 = document.getElementById("btn3");
-let btn4 = document.getElementById("btn4");
-let btn5 = document.getElementById("btn5");
-let btn6 = document.getElementById("btn6");
+    constructor(index, html, name, cost) {
+        this.index = index;
+        this.cost = cost;
+        this.html = html;
+        this.name = name;
+    }
+}
 
-btn1.addEventListener("click", () => {
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
+let products = [
+    {
+        name: "Burger",
+        cost: 12900
+    },
+    {
+        name: "Cake",
+        cost: 17900
+    },
+    {
+        name: "Coke",
+        cost: 3000
+    },
+    {
+        name: "Cookie",
+        cost: 1950
+    },
+    {
+        name: "Donut",
+        cost: 5900
+    },
+    {
+        name: "Flan",
+        cost: 29000
     }
-    else {
-        tg.MainButton.setText("Вы выбрали товар 1!");
-        item = "1";
-        tg.MainButton.show();
-    }
-});
+];
+let item = 0;
 
-btn2.addEventListener("click", () => {
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    }
-    else {
-        tg.MainButton.setText("Вы выбрали товар 2!");
-        item = "2";
-        tg.MainButton.show();
-    }
-});
+let buttonsCount = 6;
+let buttons = new Array(buttonsCount);
 
-btn3.addEventListener("click", () => {
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    }
-    else {
-        tg.MainButton.setText("Вы выбрали товар 3!");
-        item = "3";
-        tg.MainButton.show();
-    }
-});
+for (let i = 0; i < buttonsCount; i++){
+    let html = document.getElementById(`btn${i+1}`);
+    let name = products[i].name;
+    let cost = products[i].cost;
 
-btn4.addEventListener("click", () => {
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    }
-    else {
-        tg.MainButton.setText("Вы выбрали товар 4!");
-        item = "4";
-        tg.MainButton.show();
-    }
-});
+    let button = new Button(i+1, html, name, cost);
 
-btn5.addEventListener("click", () => {
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    }
-    else {
-        tg.MainButton.setText("Вы выбрали товар 5!");
-        item = "5";
-        tg.MainButton.show();
-    }
-});
+    button.html.addEventListener("click", () => {
+        if (tg.MainButton.isVisible) {
+            tg.MainButton.hide(); // to edit
+        }
+        else {
+            tg.MainButton.setText(`Вы выбрали товар ${button.name}!`);
+            item = button.index;
+            tg.MainButton.show();
+        }
+    });
 
-btn6.addEventListener("click", () => {
-    if (tg.MainButton.isVisible) {
-        tg.MainButton.hide();
-    }
-    else {
-        tg.MainButton.setText("Вы выбрали товар 6!");
-        item = "6";
-        tg.MainButton.show();
-    }
-});
+    let nameHtml = document.getElementById(`btn${i+1}-name`);
+    nameHtml.append(`${button.name} ${button.cost/100}`);
+
+    buttons[i] = button;
+}
 
 Telegram.WebApp.onEvent("mainButtonClicked", () => {
     let userCard = document.getElementById("usercard");
@@ -86,15 +80,11 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
     let j = document.createElement("p");
     j.innerText = `Нажатие ${item}`;
 
-    tg.sendData(item);
+    tg.sendData([{
+        index: buttons[item].index,
+        name: buttons[item].name,
+        cost: buttons[item].cost
+    }]);
 
     userCard.appendChild(j);
 });
-
-let userCard = document.getElementById("usercard");
-
-let p = document.createElement("p");
-p.innerText = `${tg.initDataUnsafe.user.first_name}
-${tg.initDataUnsafe.user.last_name}`;
-
-userCard.appendChild(p);

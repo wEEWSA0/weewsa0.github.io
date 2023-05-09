@@ -13,19 +13,25 @@ body {
 .inner {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 200px 200px 200px;
+    grid-template-rows: 225px 225px 225px;
 }
 
 .img {
-    width: 150px;
+    width: 148px;
 }
 
 .item {
     text-align: center;
 }
 
+.item-name {
+    margin-top: -6px;
+    font-family: Bahnschrift;
+}
+
 .btn {
     display: inline-block;
+    margin-top: -14px;
     padding: 10px 20px;
     border: none;
     background-color: rgb(248, 168, 24);
