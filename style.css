@@ -43,6 +43,20 @@ body {
     transition: background .2s linear;
 }
 
+.btn-dec {
+    background-color: rgb(248, 65, 24);
+}
+
 .btn:hover {
     background: lightgreen;
+}
+
+.btn-dec:hover {
+    background: lightsalmon;
+}
+
+.product-count {
+    margin-left: 5px;
+    margin-right: 5px;
+    font-family: Bahnschrift;
 }
