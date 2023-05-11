@@ -173,9 +173,9 @@ Telegram.WebApp.onEvent("mainButtonClicked", () => {
 
     for (let i = 0; i < check.length; i++){
         checkForJSON.push({
-            index: buttons[check[i].index-1].index,
-            name: buttons[check[i].index-1].name,
-            cost: buttons[check[i].index-1].cost,
+            index: buttons[check[i].productId+1].index,
+            name: buttons[check[i].productId+1].name,
+            cost: buttons[check[i].productId+1].cost,
             count: check[i].count
         });
     }
