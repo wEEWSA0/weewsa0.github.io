@@ -92,7 +92,7 @@ class ButtonHtmlContainer {
                     this.updateCountText(product.count);
                 }
 
-                if (this.#check.count === 0) {
+                if (this.#check.length === 0) {
                     tg.MainButton.hide();
                 }
             }
